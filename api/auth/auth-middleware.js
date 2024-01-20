@@ -10,7 +10,8 @@ const User = require('./user-model')
     if(!username.length){
         next()
     } else{
-        res.status(404).res.json({message: 'username is taken'})
+        res.status(404)
+        res.json({message: 'username is taken'})
     }
   } catch(err) {
     next(err)
