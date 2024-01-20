@@ -20,9 +20,11 @@ const User = require('./user-model')
 function registerErrors(req,res,next) {
   const {username, password} = req.body
   if(!username || !password){
-    res.status(404).res.json({
-      message:  "username and password required"
+    res.status(404)
+    res.json({
+      message: "username and password required"
     })
+   
   }
   next()
 }

@@ -64,6 +64,7 @@ router.post('/login', md.registerErrors, (req, res,next) => {
         token: token
       })
     } else {
+      res.status(500)
       res.json({
         message: "invalid credentials"
       })
