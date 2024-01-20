@@ -10,7 +10,7 @@ const User = require('./user-model')
     if(!username.length){
         next()
     } else{
-        next({message: 'username is taken', status: 401})
+        res.status(404).res.json({message: 'username is taken'})
     }
   } catch(err) {
     next(err)
@@ -20,7 +20,7 @@ const User = require('./user-model')
 function registerErrors(req,res,next) {
   const {username, password} = req.body
   if(!username || !password){
-    res.json({
+    res.status(404).res.json({
       message:  "username and password required"
     })
   }
